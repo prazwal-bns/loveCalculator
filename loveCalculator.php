@@ -71,12 +71,15 @@
     $girlArr = str_split($girl);
 
     $intersection = array_intersect($boyArr, $girlArr);
-    $girlArr = str_split($girl);
 
     $countSame = count(($intersection));
-    $countBoy = count(($boyArr));
-    $totalPercentage = floor($countSame / $countBoy * 100);
-    echo "<h1>You are matched by $totalPercentage %.";
+    $countAvg = (count($boyArr) + count($girlArr)) / 2;
+    $totalPercentage = floor($countSame / $countAvg * 100);
+    if ($totalPercentage >= 100) {
+        echo "<h1>You are matched by 100 %.";
+    } else {
+        echo "<h1>You are matched by $totalPercentage %.";
+    }
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
